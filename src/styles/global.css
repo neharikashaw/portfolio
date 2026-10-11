@@ -1,0 +1,323 @@
+/* ==========================================================================
+   PREMIUM EDITORIAL DESIGN SYSTEM
+   Candidate: Neharika Shaw — Accounting & Finance Portfolio
+   ========================================================================== */
+
+:root {
+  /* Brand Core Palette */
+  --color-navy: #142B3B;
+  --color-navy-dark: #0D1C27;
+  --color-navy-light: #1C3B50;
+  --color-navy-subtle: rgba(20, 43, 59, 0.05);
+  
+  --color-ivory: #F8F6F0;
+  --color-ivory-light: #FCFBF7;
+  --color-ivory-dark: #F0EDE2;
+
+  --color-gold: #B89A62;
+  --color-gold-hover: #A3844C;
+  --color-gold-light: rgba(184, 154, 98, 0.12);
+  --color-gold-glow: rgba(184, 154, 98, 0.25);
+  --color-gold-border: rgba(184, 154, 98, 0.35);
+
+  --color-charcoal: #252525;
+  --color-charcoal-muted: #4A4A4A;
+  --color-slate-muted: #64748B;
+
+  --color-white: #FFFFFF;
+  --color-beige: #EAE5DA;
+  --color-beige-subtle: #F3EFE6;
+
+  /* Editorial Borders */
+  --border-hairline: 1px solid rgba(20, 43, 59, 0.08);
+  --border-gold: 1px solid var(--color-gold-border);
+  --border-subtle: 1px solid rgba(20, 43, 59, 0.12);
+  --border-light: 1px solid rgba(234, 229, 218, 0.8);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-serif-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Shadows - Understated & Soft */
+  --shadow-subtle: 0 4px 20px rgba(20, 43, 59, 0.04);
+  --shadow-card: 0 10px 30px rgba(20, 43, 59, 0.06);
+  --shadow-hover: 0 16px 40px rgba(20, 43, 59, 0.10);
+  --shadow-gold: 0 8px 25px rgba(184, 154, 98, 0.2);
+
+  /* Spacing & Transitions */
+  --container-max: 1240px;
+  --section-pad-y: clamp(70px, 9vw, 130px);
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  line-height: 1.68;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle editorial paper grain / texture effect */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(20, 43, 59, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.7;
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--color-navy);
+  color: var(--color-ivory);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-navy);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 500;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-charcoal-muted);
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Common Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 48px);
+  padding-right: clamp(20px, 4vw, 48px);
+}
+
+/* Eyebrow Label (Editorial Ribbon) */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 14px;
+}
+
+.section-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--color-gold);
+}
+
+.section-header {
+  margin-bottom: clamp(40px, 6vw, 70px);
+}
+
+.section-header.text-center {
+  text-align: center;
+}
+
+.section-header.text-center .section-eyebrow {
+  justify-content: center;
+}
+
+.section-header.text-center .section-eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1.5px;
+  background-color: var(--color-gold);
+}
+
+.section-title {
+  margin-bottom: 16px;
+  color: var(--color-navy);
+}
+
+.section-subtitle {
+  max-width: 680px;
+  font-size: 1.06rem;
+  color: var(--color-charcoal-muted);
+}
+
+.section-header.text-center .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Editorial Fine Rule Separator */
+.editorial-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(184, 154, 98, 0.4) 20%,
+    rgba(20, 43, 59, 0.12) 50%,
+    rgba(184, 154, 98, 0.4) 80%,
+    transparent 100%
+  );
+  margin: 0;
+}
+
+/* Premium Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--color-navy);
+  color: var(--color-ivory);
+  border: 1px solid var(--color-navy);
+  box-shadow: 0 4px 15px rgba(20, 43, 59, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-navy-light);
+  border-color: var(--color-navy-light);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(20, 43, 59, 0.22);
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+  border: 1px solid var(--color-gold);
+  font-weight: 700;
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-gold:hover {
+  background-color: var(--color-gold-hover);
+  border-color: var(--color-gold-hover);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(184, 154, 98, 0.35);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-navy);
+  border: 1px solid rgba(20, 43, 59, 0.25);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-navy);
+  background-color: rgba(20, 43, 59, 0.04);
+  color: var(--color-navy);
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold {
+  background-color: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+  transform: translateY(-2px);
+}
+
+/* Custom Accessibility Focus Rings */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
